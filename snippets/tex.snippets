@@ -3,12 +3,11 @@ snippet a5article "a5 article" b
 \usepackage[a5paper,scale=0.78,marginratio={1:1,1:1}]{geometry}
 \usepackage{parskip}
 \setlength{\parindent}{19pt}
-\frenchspacing
 
 % fontspec
 \usepackage[log-declarations=false]{xparse}
 % chinese
-\usepackage[quiet,PunctStyle=CCT,CheckSingle=true]{xeCJK}
+\usepackage[quiet,indentfirst=false,PunctStyle=CCT,CheckSingle=true]{xeCJK}
 \defaultCJKfontfeatures{Scale=0.94,AutoFakeBold=0.1,AutoFakeSlant}
 \setCJKmainfont{Songti SC Light}
 \setCJKsansfont{Kaiti SC}
@@ -18,9 +17,13 @@ snippet a5article "a5 article" b
 \defaultfontfeatures{Scale=MatchLowercase,Mapping=tex-text}
 \setmainfont{Baskerville}
 
+\usepackage{indentfirst}
+\frenchspacing
+
 \begin{document}
 \title{${1}}
 \author{Seth\\\\ \texttt{cavingdeep@gmail.com}}
+\date{${2:Jan, 2014}}
 \maketitle
 
 ${VISUAL}$0
