@@ -1,0 +1,38 @@
+snippet a5article "a5 article" b
+\documentclass{article}
+\usepackage[a5paper,scale=0.78,marginratio={1:1,1:1}]{geometry}
+\usepackage{parskip}
+\setlength{\parindent}{19pt}
+\frenchspacing
+
+% fontspec
+\usepackage[log-declarations=false]{xparse}
+% chinese
+\usepackage[quiet,PunctStyle=CCT,CheckSingle=true]{xeCJK}
+\defaultCJKfontfeatures{Scale=0.94,AutoFakeBold=0.1,AutoFakeSlant}
+\setCJKmainfont{Songti SC Light}
+\setCJKsansfont{Kaiti SC}
+\setCJKmonofont{Heiti SC Light}
+% english
+% \usepackage{fontspec}
+\defaultfontfeatures{Scale=MatchLowercase,Mapping=tex-text}
+\setmainfont{Baskerville}
+
+\begin{document}
+\title{${1}}
+\author{Seth\\ \texttt{cavingdeep@gmail.com}}
+\maketitle
+
+${VISUAL}$0
+\end{document}
+endsnippet
+
+snippet \sup "\textsuperscript"
+\textsuperscript{${1}}$0
+endsnippet
+
+snippet \sub "\textsubscript"
+\textsubscript{${1}}$0
+endsnippet
+
+# vim:ft=snippets:
