@@ -1,10 +1,26 @@
 snippet a5article "a5 article" b
 \documentclass{article}
+% Page layout
 \usepackage[a5paper,scale=0.78,marginratio={1:1,1:1}]{geometry}
 \usepackage{parskip}
 \setlength{\parindent}{19pt}
+\usepackage{indentfirst}
 
-% fontspec
+% Header and footer
+\usepackage{fancyhdr}
+\setlength{\headheight}{15pt}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\sectionmark}[1]{\markboth{#1}{}}
+\rhead{\textit{\nouppercase{\leftmark}}}
+\rfoot{\textsf{\thepage}}
+\fancypagestyle{plain}{
+  \fancyhf{}
+  \renewcommand{\headrulewidth}{0pt}
+  \renewcommand{\footrulewidth}{0pt}
+}
+
+% Fonts
 \usepackage[log-declarations=false]{xparse}
 % chinese
 \usepackage[quiet,indentfirst=false,PunctStyle=CCT,CheckSingle=true]{xeCJK}
@@ -17,12 +33,22 @@ snippet a5article "a5 article" b
 \defaultfontfeatures{Scale=MatchLowercase,Mapping=tex-text}
 \setmainfont{Baskerville}
 
-\usepackage{indentfirst}
+% Other formatting related settings
 \frenchspacing
+% \setcounter{secnumdepth}{0}
+
+\usepackage{hyperref}
+\hypersetup{
+	unicode=true,
+	colorlinks=true,
+  pdftitle={$1},
+  pdfauthor={Seth Yuan},
+}
+% \urlstyle{same}
 
 \begin{document}
 \title{${1}}
-\author{Seth\\\\ \texttt{cavingdeep@gmail.com}}
+\author{Seth Yuan\\\\ \texttt{cavingdeep@gmail.com}}
 \date{${2:Jan, 2014}}
 \maketitle
 
