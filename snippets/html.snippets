@@ -4,10 +4,10 @@
 
 global !p
 def x(snip):
-    if snip.ft.startswith("x"):
-        snip.rv = '/'
-    else:
-        snip.rv = ""
+	if snip.ft.startswith("x"):
+		snip.rv = '/'
+	else:
+		snip.rv = ""
 endglobal
 
 ############
@@ -172,7 +172,7 @@ endsnippet
 
 snippet div "XHTML <div>"
 <div`!p snip.rv=' id="' if t[1] else ""`${1:name}`!p snip.rv = '"' if t[1] else ""``!p snip.rv=' class="' if t[2] else ""`${2:name}`!p snip.rv = '"' if t[2] else ""`>
-   $0
+	$0
 </div>
 endsnippet
 
@@ -285,16 +285,16 @@ snippet html5 "HTML5 Template"
 <!DOCTYPE html>
 <html>
 <head>
-    <title>${1}</title>
-    <meta charset="utf-8" />
+	<title>${1}</title>
+	<meta charset="utf-8" />
 </head>
 <body>
-    <header>
-        ${2}
-    </header>
-    <footer>
-        ${4}
-    </footer>
+	<header>
+		${2}
+	</header>
+	<footer>
+		${4}
+	</footer>
 </body>
 </html>
 endsnippet
