@@ -1,0 +1,77 @@
+# Julia snippets.
+
+snippet if "if"
+if ${1:true}
+	${VISUAL}$0
+end
+endsnippet
+
+snippet ife "if else"
+if ${1:true}
+	${2}
+else
+	${3}
+end
+endsnippet
+
+snippet while "while"
+while ${1:true}
+	${VISUAL}$0
+end
+endsnippet
+
+snippet for "for"
+for ${1:i} in ${2:1:10}
+	${VISUAL}$0
+end
+endsnippet
+
+snippet try "try catch"
+try
+	${VISUAL}$0
+catch ${1:err}
+	$2
+end
+endsnippet
+
+snippet fun "function"
+function ${1:function_name}(${2:argument})
+	${VISUAL}$0
+end
+endsnippet
+
+snippet f "anonymous function"
+${1:x} -> ${VISUAL}$0
+endsnippet
+
+snippet pn "println"
+println(${1:"${2:hello}"})
+endsnippet
+
+snippet pf "printf"
+@printf(${1:"%s"}, ${VISUAL}$0)
+endsnippet
+
+snippet sp "sprintf"
+@sprintf(${1:"%s"}, ${VISUAL}$0)
+endsnippet
+
+snippet im "immutable type" b
+immutable ${1:Name}${2}
+	${VISUAL}$0
+end
+endsnippet
+
+snippet type "type" b
+type ${1:Name}${2}
+	${VISUAL}$0
+end
+endsnippet
+
+snippet open "open func call"
+open(${1:"filename"}, ${2:"r"}) do ${3:input}
+	${VISUAL}$0
+end
+endsnippet
+
+# vim:ft=snippets:

@@ -1,0 +1,14 @@
+# Clojure snippets.
+
+snippet try "Try catch block." !b
+(try
+	${0:${VISUAL}}
+	(catch ${1:Exception} ${2:e}
+		$5)${3:
+	(finally
+		$4)})
+endsnippet
+
+snippet pn "(println ...)"
+(println ${1:"${2:value}"})$0
+endsnippet
