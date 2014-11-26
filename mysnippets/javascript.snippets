@@ -1,21 +1,21 @@
 # JavaScript snippets
 
-snippet use "use strict" !b
+snippet use "use strict" b
 "use strict";
 
 endsnippet
 
 snippet fun "function"
-function ${1:function_name}(${2:argument}) {
+function ${1:function_name}($2) {
 	${VISUAL}$0
 }
 endsnippet
 
-snippet f "anonymous function"
-function${1: function_name}(${2:argument}) {${VISUAL}$0}
+snippet fn "anonymous function"
+function$1($2) {${VISUAL}$0}
 endsnippet
 
-snippet (f "Closed function evaluation"
+snippet (f "Closed function evaluation" b
 (function(${1:argument}) {
 	${VISUAL}$0
 }(${2:$1}));
