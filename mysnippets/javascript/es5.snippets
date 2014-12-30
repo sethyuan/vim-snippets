@@ -15,30 +15,8 @@ snippet fn "anonymous function" i
 function$1($2) {${VISUAL}$0}
 endsnippet
 
-snippet f "arrow function" i
-${1:(${2:x})} => ${3:{$4$0}}
-endsnippet
-
-snippet fun* "generator function" b
-function* ${1:foo}($2) {
-	${VISUAL}$0
-}
-endsnippet
-
-snippet afun "async function" b
-async function ${1:function_name}($2) {
-	${VISUAL}$0
-}
-endsnippet
-
 snippet fe "Closed function evaluation" b
 (function(${1:argument}) {
-	${VISUAL}$0
-})(${2:$1});
-endsnippet
-
-snippet afe "Closed async function evaluation" b
-(async function(${1:argument}) {
 	${VISUAL}$0
 })(${2:$1});
 endsnippet
@@ -55,12 +33,6 @@ if (${1:condition}) {
 } else {
 	${3}
 }
-endsnippet
-
-snippet for "for of" b
-for (const ${1:x} of ${2:iterator}) ${3:{
-	$4$0
-}}
 endsnippet
 
 snippet fori "es5 for" b
@@ -130,8 +102,8 @@ endsnippet
 
 # Node.js require snippets
 
-snippet re "require an AMD module"
-var $1 = require("${2:$1}")$3;$0
+snippet re "require an module"
+require("$1")$0
 endsnippet
 
 # vim:ft=snippets:
