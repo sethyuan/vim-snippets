@@ -6,14 +6,28 @@ const ${1:Component} = React.createClass({
 		return (
 			${VISUAL}$0
 		);
-	}
+	},
+
+	propTypes: {
+		propA: React.PropTypes.number.isRequired,
+	},
+
+	getDefaultProps() {
+		return {};
+	},
 
 	getInitialState() {
 		return {};
-	}
+	},
+
+	componentWillMount() {
+	},
 
 	componentDidMount() {
-	}
+	},
+
+	componentWillUnmount() {
+	},
 });
 endsnippet
 
