@@ -15,7 +15,7 @@ snippet fn "anonymous function" i
 function$1($2) {${VISUAL}$0}
 endsnippet
 
-snippet fe "Closed function evaluation" b
+snippet fe "Closed function evaluation"
 (function(${1:argument}) {
 	${VISUAL}$0
 })(${2:$1});
@@ -29,9 +29,8 @@ endsnippet
 
 snippet ife "if else" b
 if (${1:condition}) {
-	${2}
+	${VISUAL}$0
 } else {
-	${3}
 }
 endsnippet
 
@@ -89,15 +88,15 @@ endsnippet
 # Snippets for Console Debug Output
 
 snippet cl "console.log"
-console.log(${1:"${2:value}"});
+console.log(${1:"${2:value}"})
 endsnippet
 
 snippet cw "console.warn"
-console.warn(${1:"${2:value}"});
+console.warn(${1:"${2:value}"})
 endsnippet
 
 snippet ce "console.error"
-console.error(${1:"${2:value}"});
+console.error(${1:"${2:value}"})
 endsnippet
 
 snippet ctime "console.time"

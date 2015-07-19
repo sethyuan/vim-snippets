@@ -1,10 +1,14 @@
 # JavaScript snippets
 
 snippet ff "arrow function" i
-${1:(${2:x})} => ${3:{$4$0}}
+${1:(${2:x})} => ${3:{${VISUAL}$4}}
 endsnippet
 
-snippet fun* "generator function" b
+snippet ffe "arrow function evaluation"
+(${1:(${2:x})} => ${3:{${VISUAL}$4}})()
+endsnippet
+
+snippet fun* "generator function"
 function* ${1:foo}($2) {
 	${VISUAL}$0
 }
@@ -16,6 +20,10 @@ async function ${1:function_name}($2) {
 }
 endsnippet
 
+snippet aff "async arrow function" i
+async ${1:(${2:x})} => ${3:{${VISUAL}$4}}
+endsnippet
+
 snippet afe "Closed async function evaluation" b
 (async function(${1:argument}) {
 	${VISUAL}$0
@@ -23,9 +31,9 @@ snippet afe "Closed async function evaluation" b
 endsnippet
 
 snippet for "for of" b
-for (let ${1:x} of ${2:iterator}) ${3:{
-	$4$0
-}}
+for (let ${1:x} of ${2:iterator}) {
+	${VISUAL}$0
+}
 endsnippet
 
 # vim:ft=snippets:
