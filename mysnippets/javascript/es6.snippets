@@ -14,22 +14,6 @@ function* ${1:foo}($2) {
 }
 endsnippet
 
-snippet afun "async function" b
-async function ${1:function_name}($2) {
-	${VISUAL}$0
-}
-endsnippet
-
-snippet aff "async arrow function" i
-async ${1:(${2:x})} => ${3:{${VISUAL}$4}}
-endsnippet
-
-snippet afe "Closed async function evaluation" b
-(async function(${1:argument}) {
-	${VISUAL}$0
-})(${2:$1});
-endsnippet
-
 snippet for "for of" b
 for (let ${1:x} of ${2:iterator}) {
 	${VISUAL}$0

@@ -1,4 +1,4 @@
-# JavaScript snippets
+# ECMA5 snippets
 
 snippet use "use strict" b
 "use strict";
@@ -21,6 +21,10 @@ snippet fe "Closed function evaluation"
 })(${2:$1});
 endsnippet
 
+snippet ifs "if: single line" b
+if (${1:condition}) ${VISUAL}$0
+endsnippet
+
 snippet if "if" b
 if (${1:condition}) {
 	${VISUAL}$0
@@ -35,19 +39,19 @@ if (${1:condition}) {
 endsnippet
 
 snippet fori "es5 for" b
-for (var ${1:i} = 0; $1 < ${2:${3:Things}.length}; $1++) {
+for (${1:var} ${2:i} = 0; $1 < ${3:${4:Things}.length}; $2++) {
 	${VISUAL}$0
 }
 endsnippet
 
 snippet fork "es5 for in" b
-for (var ${1:k} in ${2:obj}) {
+for (${1:var} ${2:k} in ${3:obj}) {
 	${VISUAL}$0
 }
 endsnippet
 
 snippet forr "for reversed" b
-for (var ${1:i} = ${2:${3:Things}.length} - 1; $1 >= 0; $1--) {
+for (${1:var} ${2:i} = ${3:${4:Things}.length} - 1; $2 >= 0; $2--) {
 	${VISUAL}$0
 }
 endsnippet
@@ -55,8 +59,16 @@ endsnippet
 snippet try "try catch" b
 try {
 	${VISUAL}$0
-} catch (err) {
-	${1:console.error(err);}
+} catch (e) {
+	console.error(e);
+}
+endsnippet
+
+snippet tryc "try catch" b
+try {
+	${VISUAL}$0
+} catch (e) {
+	console.error(e);
 }
 endsnippet
 
@@ -64,17 +76,17 @@ snippet tryf "try finally" b
 try {
 	${VISUAL}$0
 } finally {
-	${1:console.log("finally");}
+	console.log("finally");
 }
 endsnippet
 
 snippet trycf "try catch finally" b
 try {
 	${VISUAL}$0
-} catch (err) {
-	${1:console.error(err);}
+} catch (e) {
+	console.error(e);
 } finally {
-	${2:console.log("finally");}
+	console.log("finally");
 }
 endsnippet
 
@@ -108,7 +120,7 @@ endsnippet
 # Node.js require snippets
 
 snippet re "require an module"
-require("$1")$0
+require("$0")
 endsnippet
 
 # vim:ft=snippets:
