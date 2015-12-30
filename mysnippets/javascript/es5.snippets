@@ -97,6 +97,20 @@ ${1:class_name}.prototype.${2:method_name} = function(${3:first_argument}) {
 
 endsnippet
 
+# Common snippets
+
+snippet sett "setTimeout"
+setTimeout(${2:function() {
+	${VISUAL}$0
+}}, ${1:100});
+endsnippet
+
+snippet seti "setInterval"
+setInterval(${2:function() {
+	${VISUAL}$0
+}}, ${1:100});
+endsnippet
+
 # Snippets for Console Debug Output
 
 snippet cl "console.log"

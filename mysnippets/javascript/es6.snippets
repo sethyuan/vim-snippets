@@ -20,4 +20,18 @@ for (let ${1:x} of ${2:iterator}) {
 }
 endsnippet
 
+# Common snippets
+
+snippet st "setTimeout ES6"
+setTimeout(${2:() => {
+	${VISUAL}$0
+}}, ${1:100});
+endsnippet
+
+snippet si "setInterval ES6"
+setInterval(${2:() => {
+	${VISUAL}$0
+}}, ${1:100});
+endsnippet
+
 # vim:ft=snippets:

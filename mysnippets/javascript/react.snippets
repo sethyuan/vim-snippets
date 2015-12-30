@@ -1,34 +1,67 @@
 # React snippets
 
-snippet comp "react component" b
-const ${1:Component} = React.createClass({
+snippet comp "react component"
+React.createClass({
+	displayName: "${1:Component}",
+
 	render() {
 		return (
 			${VISUAL}$0
 		);
 	},
-
-	propTypes: {
-		propA: React.PropTypes.number.isRequired,
-	},
-
-	getDefaultProps() {
-		return {};
-	},
-
-	getInitialState() {
-		return {};
-	},
-
-	componentWillMount() {
-	},
-
-	componentDidMount() {
-	},
-
-	componentWillUnmount() {
-	},
 });
+endsnippet
+
+snippet dprop "getDefaultProps" !b
+getDefaultProps() {
+	return {
+		${VISUAL}$0
+	};
+},
+endsnippet
+
+snippet istate "getInitialState" !b
+getInitialState() {
+	return {
+		${VISUAL}$0
+	};
+},
+endsnippet
+
+snippet willm "componentWillMount" !b
+componentWillMount() {
+	${VISUAL}$0
+},
+endsnippet
+
+snippet didm "componentDidMount" !b
+componentDidMount() {
+	${VISUAL}$0
+},
+endsnippet
+
+snippet willum "componentWillUnmount" !b
+componentWillUnmount() {
+	${VISUAL}$0
+},
+endsnippet
+
+snippet willrp "componentWillReceiveProps" !b
+componentWillReceiveProps(nextProps) {
+	${VISUAL}$0
+},
+endsnippet
+
+snippet willu "componentWillUpdate" !b
+componentWillUpdate(nextProps, nextState) {
+	${VISUAL}$0
+},
+endsnippet
+
+snippet didu "componentDidUpdate" !b
+componentDidUpdate(prevProps, prevState) {
+	${VISUAL}$0
+},
 endsnippet
 
 # vim:ft=snippets:
