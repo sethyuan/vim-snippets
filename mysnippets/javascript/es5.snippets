@@ -1,7 +1,7 @@
 # ECMA5 snippets
 
 snippet use "use strict" b
-"use strict";
+"use strict"
 
 endsnippet
 
@@ -16,9 +16,9 @@ function$1($2) {${VISUAL}$0}
 endsnippet
 
 snippet fe "Closed function evaluation"
-(function(${1:argument}) {
+;(function(${1:argument}) {
 	${VISUAL}$0
-})(${2:$1});
+})(${2:$1})
 endsnippet
 
 snippet ifs "if: single line" b
@@ -60,7 +60,7 @@ snippet try "try catch" b
 try {
 	${VISUAL}$0
 } catch (e) {
-	console.error(e);
+	console.error(e)
 }
 endsnippet
 
@@ -68,7 +68,7 @@ snippet tryc "try catch" b
 try {
 	${VISUAL}$0
 } catch (e) {
-	console.error(e);
+	console.error(e)
 }
 endsnippet
 
@@ -76,7 +76,7 @@ snippet tryf "try finally" b
 try {
 	${VISUAL}$0
 } finally {
-	console.log("finally");
+	console.log("finally")
 }
 endsnippet
 
@@ -84,16 +84,16 @@ snippet trycf "try catch finally" b
 try {
 	${VISUAL}$0
 } catch (e) {
-	console.error(e);
+	console.error(e)
 } finally {
-	console.log("finally");
+	console.log("finally")
 }
 endsnippet
 
 snippet proto "Prototype (proto)" b
 ${1:class_name}.prototype.${2:method_name} = function(${3:first_argument}) {
 	${VISUAL}$0
-};
+}
 
 endsnippet
 
@@ -102,13 +102,13 @@ endsnippet
 snippet sett "setTimeout"
 setTimeout(${2:function() {
 	${VISUAL}$0
-}}, ${1:100});
+}}, ${1:100})
 endsnippet
 
 snippet seti "setInterval"
 setInterval(${2:function() {
 	${VISUAL}$0
-}}, ${1:100});
+}}, ${1:100})
 endsnippet
 
 # Snippets for Console Debug Output
@@ -126,9 +126,9 @@ console.error(${1:"${2:value}"})
 endsnippet
 
 snippet ctime "console.time"
-console.time("${1:label}");
+console.time("${1:label}")
 ${VISUAL}$0
-console.timeEnd("$1");
+console.timeEnd("$1")
 endsnippet
 
 # Node.js require snippets
