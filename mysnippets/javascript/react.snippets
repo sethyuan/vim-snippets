@@ -1,67 +1,49 @@
 # React snippets
 
 snippet comp "react component"
-React.createClass({
-	displayName: "${1:Component}",
-
+class ${1:Component} extends React.Component {
 	render() {
 		return (
 			${VISUAL}$0
 		)
-	},
-})
-endsnippet
-
-snippet dprop "getDefaultProps" !b
-getDefaultProps() {
-	return {
-		${VISUAL}$0
 	}
-},
-endsnippet
-
-snippet istate "getInitialState" !b
-getInitialState() {
-	return {
-		${VISUAL}$0
-	}
-},
+}
 endsnippet
 
 snippet willm "componentWillMount" !b
 componentWillMount() {
 	${VISUAL}$0
-},
+}
 endsnippet
 
 snippet didm "componentDidMount" !b
 componentDidMount() {
 	${VISUAL}$0
-},
+}
 endsnippet
 
 snippet willum "componentWillUnmount" !b
 componentWillUnmount() {
 	${VISUAL}$0
-},
+}
 endsnippet
 
 snippet willrp "componentWillReceiveProps" !b
 componentWillReceiveProps(nextProps) {
 	${VISUAL}$0
-},
+}
 endsnippet
 
 snippet willu "componentWillUpdate" !b
 componentWillUpdate(nextProps, nextState) {
 	${VISUAL}$0
-},
+}
 endsnippet
 
 snippet didu "componentDidUpdate" !b
 componentDidUpdate(prevProps, prevState) {
 	${VISUAL}$0
-},
+}
 endsnippet
 
 # vim:ft=snippets:

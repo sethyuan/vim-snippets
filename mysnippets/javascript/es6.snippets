@@ -4,10 +4,6 @@ snippet ff "arrow function" i
 ${1:(${2:x})} => ${3:{${VISUAL}$4}}
 endsnippet
 
-snippet ffe "arrow function evaluation"
-(${1:(${2:x})} => ${3:{${VISUAL}$4}})()
-endsnippet
-
 snippet fun* "generator function"
 function* ${1:foo}($2) {
 	${VISUAL}$0
@@ -32,6 +28,16 @@ snippet si "setInterval ES6"
 setInterval(${2:() => {
 	${VISUAL}$0
 }}, ${1:100})
+endsnippet
+
+# Module snippets
+
+snippet exp "export" b
+export ${VISUAL}$0
+endsnippet
+
+snippet ed "export default" b
+export default ${VISUAL}$0
 endsnippet
 
 # vim:ft=snippets:
