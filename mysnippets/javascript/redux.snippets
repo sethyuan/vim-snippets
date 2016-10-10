@@ -1,0 +1,23 @@
+# React snippets
+
+snippet act "action definition" !b
+export const ${1:ACTION_KEY} = "$1"
+endsnippet
+
+snippet actc "action creator"
+export function ${1:setSomething}(${2:val}) {
+	return {
+		type: $3,
+`!p
+args = t[2].split(", ")
+for i, v in enumerate(args):
+	if i + 1 < len(args):
+		snip.rv += snip.mkline(v, "    ") + ",\n"
+	else:
+		snip.rv += snip.mkline(v, "    ") + ","
+`
+	}
+}
+endsnippet
+
+# vim:ft=snippets:
