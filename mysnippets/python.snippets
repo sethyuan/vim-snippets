@@ -26,152 +26,16 @@ for ${1:item} in ${2:iterable}:
 	${3:pass}
 endsnippet
 
-##########
-# COMMON #
-##########
-
-# The smart def and smart class snippets use a global option called
-# "g:ultisnips_python_style" which, if set to "doxygen" will use doxygen
-# style comments in docstrings.
-
-global !p
-
-NORMAL  = 0x1
-DOXYGEN = 0x2
-SPHINX  = 0x3
-
-SINGLE_QUOTES = 0x1
-DOUBLE_QUOTES = 0x2
-
-def get_args(arglist):
-	args = [arg.split('=')[0].strip() for arg in arglist.split(',') if arg]
-	args = [arg for arg in args if arg and arg != "self"]
-
-	return args
-
-
-def get_quoting_style(snip):
-	style = snip.opt("g:ultisnips_python_quoting_style", "double")
-	if style == 'single':
-		return SINGLE_QUOTES
-	return DOUBLE_QUOTES
-
-def tripple_quotes(snip):
-	if get_quoting_style(snip) == SINGLE_QUOTES:
-		return "'''"
-	return '"""'
-
-def get_style(snip):
-	style = snip.opt("g:ultisnips_python_style", "normal")
-
-	if    style == "doxygen": return DOXYGEN
-	elif  style == "sphinx": return SPHINX
-	else: return NORMAL
-
-
-def format_arg(arg, style):
-	if style == DOXYGEN:
-		return "@param %s @todo" % arg
-	elif style == SPHINX:
-		return ":param %s: @todo" % arg
-	elif style == NORMAL:
-		return "%s: @todo" % arg
-
-
-def format_return(style):
-	if style == DOXYGEN:
-		return "@return: @todo"
-	elif style in (NORMAL, SPHINX):
-		return "returns: @todo"
-
-
-def write_docstring_args(args, snip):
-	if not args:
-		snip.rv += ' {0}'.format(tripple_quotes(snip))
-		return
-
-	snip.rv += '\n' + snip.mkline('', indent='')
-
-	style = get_style(snip)
-
-	for arg in args:
-		snip += format_arg(arg, style)
-
-
-def write_init_body(args, parents, snip):
-	parents = [p.strip() for p in parents.split(",")]
-	parents = [p for p in parents if p != 'object']
-
-	for p in parents:
-		snip += p + ".__init__(self)"
-
-	if parents:
-		snip.rv += '\n' + snip.mkline('', indent='')
-
-	for arg in args:
-		snip += "self._%s = %s" % (arg, arg)
-
-
-def write_slots_args(args, snip):
-	args = ['"_%s"' % arg for arg in args]
-	snip += '__slots__ = (%s,)' % ', '.join(args)
-
-endglobal
 
 ########################################
 # Class & Special Method Name Snippets #
 ########################################
 
-snippet class "class with docstrings" b
-class ${1:MyClass}(${2:object}):
-
-	`!p snip.rv = tripple_quotes(snip)`${3:Docstring for $1. }`!p snip.rv = tripple_quotes(snip)`
-
-	def __init__(self$4):
-		`!p snip.rv = tripple_quotes(snip)`${5:@todo: to be defined1.}`!p
-snip.rv = ""
-snip >> 2
-
-args = get_args(t[4])
-
-write_docstring_args(args, snip)
-if args:
-	snip.rv += '\n' + snip.mkline('', indent='')
-	snip += '{0}'.format(tripple_quotes(snip))
-
-write_init_body(args, t[2], snip)
-`
-		$0
+snippet class "class" b
+class ${1:MyClass}:
+	def __init__(self$2):
+		${0:pass}
 endsnippet
-
-
-snippet slotclass "class with slots and docstrings" b
-class ${1:MyClass}(${2:object}):
-
-	`!p snip.rv = tripple_quotes(snip)`${3:Docstring for $1. }`!p snip.rv = tripple_quotes(snip)`
-`!p
-snip >> 1
-args = get_args(t[4])
-write_slots_args(args, snip)
-`
-
-	def __init__(self$4):
-		`!p snip.rv = tripple_quotes(snip)`${5:@todo: to be defined.}`!p
-snip.rv = ""
-snip >> 2
-
-args = get_args(t[4])
-
-write_docstring_args(args, snip)
-if args:
-	snip.rv += '\n' + snip.mkline('', indent='')
-	snip += tripple_quotes(snip)
-
-write_init_body(args, t[2], snip)
-`
-		$0
-endsnippet
-
 
 snippet contain "methods for emulating a container type" b
 def __len__(self):
@@ -354,23 +218,9 @@ def __coerce__(self, other):
 	${25:pass}
 endsnippet
 
-snippet def "function with docstrings" b
-def ${1:function}(`!p
-if snip.indent:
-	snip.rv = 'self' + (", " if len(t[2]) else "")`${2:arg1}):
-	`!p snip.rv = tripple_quotes(snip)`${4:@todo: Docstring for $1.}`!p
-snip.rv = ""
-snip >> 1
-
-args = get_args(t[2])
-if args:
-	write_docstring_args(args, snip)
-
-style = get_style(snip)
-snip += format_return(style)
-snip.rv += '\n' + snip.mkline('', indent='')
-snip += tripple_quotes(snip) `
-	${0:pass}
+snippet def "function" b
+def ${1:function}(${2:arg}):
+	${3:pass}
 endsnippet
 
 
@@ -380,41 +230,30 @@ self.
 endsnippet
 
 snippet from "from module import name" b
-from ${1:module} import ${2:Stuff}
+from ${1:module} import ${2:stuff}
 endsnippet
 
 
 ##############
 # PROPERTIES #
 ##############
-snippet roprop "Read Only Property" b
+
+snippet prop "Property" b
 @property
 def ${1:name}(self):
 	${2:return self._$1}$0
 endsnippet
 
-snippet rwprop "Read write property" b
-def ${1:name}():
-	`!p snip.rv = tripple_quotes(snip) if t[2] else ''
-`${2:@todo: Docstring for $1.}`!p
-if t[2]:
-	snip >> 1
+snippet props "Property setter" b
+@$1.setter
+def ${1:name}(self, ${2:value}):
+	${3:self._$1 = $2}$0
+endsnippet
 
-	style = get_style(snip)
-	snip.rv += '\n' + snip.mkline('', indent='')
-	snip += format_return(style)
-	snip.rv += '\n' + snip.mkline('', indent='')
-	snip += tripple_quotes(snip)
-else:
-	snip.rv = ""`
-	def fget(self):
-		return self._$1$0
-
-	def fset(self, value):
-		self._$1 = value
-	return locals()
-
-$1 = property(**$1(), doc=$1.__doc__)
+snippet propd "Property deleter" b
+@$1.deleter
+def ${1:name}(self):
+	del ${2:self._$1}$0
 endsnippet
 
 
@@ -449,14 +288,14 @@ endsnippet
 snippet try "Try / Except" b
 try:
 	${1:pass}
-except ${2:Exception}, ${3:e}:
+except ${2:Exception} as ${3:e}:
 	${4:raise $3}
 endsnippet
 
 snippet try "Try / Except / Else" b
 try:
 	${1:pass}
-except ${2:Exception}, ${3:e}:
+except ${2:Exception} as ${3:e}:
 	${4:raise $3}
 else:
 	${5:pass}
@@ -465,7 +304,7 @@ endsnippet
 snippet try "Try / Except / Finally" b
 try:
 	${1:pass}
-except ${2:Exception}, ${3:e}:
+except ${2:Exception} as ${3:e}:
 	${4:raise $3}
 finally:
 	${5:pass}
@@ -474,7 +313,7 @@ endsnippet
 snippet try "Try / Except / Else / Finally" b
 try:
 	${1:pass}
-except${2: ${3:Exception}, ${4:e}}:
+except${2: ${3:Exception} as ${4:e}}:
 	${5:raise}
 else:
 	${6:pass}
@@ -522,9 +361,6 @@ endsnippet
 
 snippet testcase "pyunit testcase" b
 class Test${1:Class}(${2:unittest.TestCase}):
-
-	`!p snip.rv = tripple_quotes(snip)`${3:Test case docstring.}`!p snip.rv = tripple_quotes(snip)`
-
 	def setUp(self):
 		${4:pass}
 
