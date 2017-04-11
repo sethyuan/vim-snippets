@@ -17,7 +17,7 @@ $0
 endsnippet
 
 snippet ifmain "ifmain" b
-if __name__ == '__main__':
+if __name__ == "__main__":
 	${1:main()}$0
 endsnippet
 
@@ -292,16 +292,23 @@ except ${2:Exception} as ${3:e}:
 	${4:raise $3}
 endsnippet
 
-snippet try "Try / Except / Else" b
+# snippet try "Try / Except / Else" b
+# try:
+# 	${1:pass}
+# except ${2:Exception} as ${3:e}:
+# 	${4:raise $3}
+# else:
+# 	${5:pass}
+# endsnippet
+
+snippet tryf "Try / Finally" b
 try:
 	${1:pass}
-except ${2:Exception} as ${3:e}:
-	${4:raise $3}
-else:
-	${5:pass}
+finally:
+	${2:pass}
 endsnippet
 
-snippet try "Try / Except / Finally" b
+snippet tryef "Try / Except / Finally" b
 try:
 	${1:pass}
 except ${2:Exception} as ${3:e}:
@@ -310,16 +317,16 @@ finally:
 	${5:pass}
 endsnippet
 
-snippet try "Try / Except / Else / Finally" b
-try:
-	${1:pass}
-except${2: ${3:Exception} as ${4:e}}:
-	${5:raise}
-else:
-	${6:pass}
-finally:
-	${7:pass}
-endsnippet
+# snippet try "Try / Except / Else / Finally" b
+# try:
+# 	${1:pass}
+# except${2: ${3:Exception} as ${4:e}}:
+# 	${5:raise}
+# else:
+# 	${6:pass}
+# finally:
+# 	${7:pass}
+# endsnippet
 
 
 #####################
