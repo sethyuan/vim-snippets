@@ -1,13 +1,23 @@
 # JavaScript snippets
 
 snippet ff "arrow function" i
-${1:(${2:x})} => ${3:{${VISUAL}$4}}
+(${1:x}) => ${2:{${VISUAL}$3}}
 endsnippet
 
 snippet fun* "generator function"
 function* ${1:foo}($2) {
 	${VISUAL}$0
 }
+endsnippet
+
+snippet afun "async function" b
+async function ${1:function_name}($2) {
+	${VISUAL}$0
+}
+endsnippet
+
+snippet ffa "async arrow function" i
+async (${1:x}) => ${2:{${VISUAL}$3}}
 endsnippet
 
 snippet for "for of" b
