@@ -26,6 +26,16 @@ for (let ${1:x} of ${2:iterator}) {
 }
 endsnippet
 
+snippet des "destructuring statement" b
+const { ${2:x} } = ${1:this.props}$0
+endsnippet
+
+snippet fea "Closed function evaluation"
+;(async (${1:argument}) => {
+	${VISUAL}$0
+})(${2:$1})
+endsnippet
+
 # Common snippets
 
 snippet st "setTimeout ES6"

@@ -3,7 +3,7 @@
 snippet comp "react component"
 import React from "react"
 
-export default class ${1:Component} extends React.Component {
+export default class ${1:Component} extends React.${2:Pure}Component {
 	render() {
 		return (
 			${VISUAL}$0
@@ -46,14 +46,6 @@ snippet didu "componentDidUpdate" !b
 componentDidUpdate(prevProps, prevState) {
 	${VISUAL}$0
 }
-endsnippet
-
-snippet props "extract props" !b
-const { $1 } = this.props
-endsnippet
-
-snippet state "extract state" !b
-const { $1 } = this.state
 endsnippet
 
 # vim:ft=snippets:
