@@ -1,7 +1,3 @@
-###########################################################################
-#                            TEXTMATE SNIPPETS                            #
-###########################################################################
-
 #! header
 snippet #! "Shebang header for python scripts" b
 #!/usr/bin/env python
@@ -17,8 +13,12 @@ $0
 endsnippet
 
 snippet ifmain "ifmain" b
+def main():
+	${0:pass}
+
+
 if __name__ == "__main__":
-	${1:main()}$0
+	main()
 endsnippet
 
 snippet for "for loop" b
@@ -224,11 +224,6 @@ def ${1:function}(${2:arg}):
 endsnippet
 
 
-# doesn't expand when there is a word in front
-snippet /(^|(?<=\W))\./ "self." r
-self.
-endsnippet
-
 snippet from "from module import name" b
 from ${1:module} import ${2:stuff}
 endsnippet
@@ -333,17 +328,17 @@ endsnippet
 # Assertions & Tests #
 #####################
 
-snippet pdb "Set PDB breakpoint" b
-import pdb; pdb.set_trace()
-endsnippet
-
-snippet ipdb "Set IPDB breakpoint" b
-import ipdb; ipdb.set_trace()
-endsnippet
-
-snippet pudb "Set PUDB breakpoint" b
-import pudb; pudb.set_trace()
-endsnippet
+# snippet pdb "Set PDB breakpoint" b
+# import pdb; pdb.set_trace()
+# endsnippet
+#
+# snippet ipdb "Set IPDB breakpoint" b
+# import ipdb; ipdb.set_trace()
+# endsnippet
+#
+# snippet pudb "Set PUDB breakpoint" b
+# import pudb; pudb.set_trace()
+# endsnippet
 
 snippet ae "Assert equal" b
 self.assertEqual(${1:first},${2:second})
