@@ -1,0 +1,13 @@
+# Test related snippets
+
+snippet desc "describe" b
+describe("${1:name}", () => {
+	${VISUAL}$0
+})
+endsnippet
+
+snippet it "it" b
+it("${1:name}", (${2:done}) => {
+	${VISUAL}$0
+})
+endsnippet
