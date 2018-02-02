@@ -125,7 +125,7 @@ function* ${1:foo}($2) {
 }
 endsnippet
 
-snippet afun "async function" b
+snippet funa "async function"
 async function ${1:function_name}($2) {
 	${VISUAL}$0
 }
@@ -160,6 +160,10 @@ setInterval(${2:() => {
 endsnippet
 
 # Module snippets
+
+snippet ex "export" b
+export ${VISUAL}$0
+endsnippet
 
 snippet exp "export" b
 export ${VISUAL}$0
