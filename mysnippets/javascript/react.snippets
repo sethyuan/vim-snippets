@@ -12,12 +12,6 @@ export default class ${1:Component} extends React.${2:Pure}Component {
 }
 endsnippet
 
-snippet willm "componentWillMount" !b
-componentWillMount() {
-	${VISUAL}$0
-}
-endsnippet
-
 snippet didm "componentDidMount" !b
 componentDidMount() {
 	${VISUAL}$0
@@ -30,14 +24,14 @@ componentWillUnmount() {
 }
 endsnippet
 
-snippet willrp "componentWillReceiveProps" !b
-componentWillReceiveProps(nextProps) {
+snippet dsp "getDerivedStateFromProps" !b
+static getDerivedStateFromProps(nextProps, prevState) {
 	${VISUAL}$0
 }
 endsnippet
 
-snippet willu "componentWillUpdate" !b
-componentWillUpdate(nextProps, nextState) {
+snippet sbu "getSnapshotBeforeUpdate" !b
+getSnapshotBeforeUpdate(prevProps, prevState) {
 	${VISUAL}$0
 }
 endsnippet
