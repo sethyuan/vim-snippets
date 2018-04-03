@@ -37,7 +37,13 @@ getSnapshotBeforeUpdate(prevProps, prevState) {
 endsnippet
 
 snippet didu "componentDidUpdate" !b
-componentDidUpdate(prevProps, prevState) {
+componentDidUpdate(prevProps, prevState, snapshot) {
+	${VISUAL}$0
+}
+endsnippet
+
+snippet didc "componentDidCatch" !b
+componentDidCatch(error, info) {
 	${VISUAL}$0
 }
 endsnippet
