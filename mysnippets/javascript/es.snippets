@@ -140,7 +140,13 @@ const { ${2:x} } = ${1:this.props}$0
 endsnippet
 
 snippet fea "Closed function evaluation"
-;(async (${1:argument}) => {
+((${1:argument}) => {
+	${VISUAL}$0
+})(${2:$1})
+endsnippet
+
+snippet fea "Asynchronous closed function evaluation"
+(async (${1:argument}) => {
 	${VISUAL}$0
 })(${2:$1})
 endsnippet
